@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="main.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <title>Test Website</title>
+  <style>
+      .column {
+        float: left;
+        width: 50%;
+      }
+      
+       .row:after {
+          content: "";
+          display: table;
+          clear: both;
+      }
+  </style>
+  </head>
+	<!-- development version, includes helpful console warnings -->
+	
+  <body style="background-color:#111111";"text-align:center"> 
+    
+    <div class="row">
+      <div class="column" style="background-color:steelblue;">
+      <h2 style="text-align:center"; >AFL TEAMS</h2>
+        <ul id="afllist"; style="list-style-type:none">
+          <label><h3>List of current AFL teams:</h3></label>
+          <li>Adelaide Crows</li>
+          <li>Brisbane Lions</li>
+          <li>Carlton Blues</li>
+          <li>Collingwood Magpies</li>
+          <li>Essendon Bombers</li>
+          <li>Fremantle Dockers</li>
+          <li>Geelong Cats</li>
+          <li>Gold Coast Suns</li>
+          <li>Greater Western Sydney Giants</li>
+          <li>Hawthorn Hawks</li>
+          <li>Melbourne Demons</li>
+          <li>North Melbourne Kangaroos</li>
+          <li>Port Adelaide Power</li>
+          <li>Richmond Tigers</li>
+          <li>St Kilda Saints</li>
+          <li>Sydney Swans</li>
+          <li>West Coast Eagles</li>
+          <li>Western Bulldogs</li>
+        </ul>
+      </div>
+                   
+    <div class="column" style="background-color:darkslategray;">
+      <h2 style="text-align:center"; >NRL TEAMS</h2>
+        <ul id="nrllist"; style="list-style-type:none";>
+          <label><h3>List of current NRL teams:</h3></label>
+          <li>Brisbane Broncos</li>
+          <li>Canberra Raiders</li>
+          <li>Cantebury Bulldogs</li>
+          <li>Cronulla Sharks</li>
+          <li>Gold Coast Titans</li>
+          <li>Manly Sea Eagles</li>
+          <li>Melbourne Storm</li>
+          <li>Newcastle Knights</li>
+          <li>New Zealand Warriors</li>
+          <li>North Queensland Cowboys</li>
+          <li>Parramatta Eels</li>
+          <li>Penrith Panthers</li>
+          <li>South Sydney Rabbitohs</li>
+          <li>St George Illawarra Dragons</li>
+          <li>Sydney Roosters</li>
+          <li>Wests Tigers</li>
+					<br></br>
+        </ul>
+      </div>
+		</div>
+
+	<iframe style="width:49.5%; height:50vh; border:0;"
+					src="https://www.youtube.com/embed/XMZYZcoAcU0" id="left_frame">
+	</iframe>
+
+	<iframe style="width:49.5%; height:50vh; border:0;"
+					src="https://www.youtube.com/embed/tApYIS6SJQE" id="right_frame">
+	</iframe>
+	
+	<br></br>
+
+	<div id="myDIV" class="header">
+		<h3 style="color: white">My to do list</h3>
+		<input type="text" id="myInput" placeholder="Title...">
+		<span onclick="newElement()" class="addBtn">Add</span>
+	</div>
+
+	<ol id="myOL">
+		<li>Assignment 1</li>
+		<li>Assignment 2</li>
+		<li>Assignment 3</li>
+		<li>Assignment 4</li>
+	</ol>
+
+	<br></br>
+
+	<button onclick="window.print()" id="printbutton">Print Page</button>
+
+  <script>
+    // Add the check symbol when clicked
+var list = document.querySelector('ol');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Add a new list item when clicking add
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myOL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.appendChild(txt);
+}
+  </script>
+
+
+</body>
+  
+</html>

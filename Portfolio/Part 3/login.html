@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Login</title>
+    <link rel="stylesheet" type="text/css" href="./css/login.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<!-- Top Navigation Menu -->
+<div class="topnav" id="myTopnav">
+ <a href="index.html">Home</a>
+ <a href="About.html">About</a>
+ <a href="login.html" class="active">Login</a>
+ <a href="contact.html">Contact</a>
+ <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+   <i class="fa fa-bars"></i>
+ </a>
+</div>
+
+---------------------------
+<form id="loginbox">
+    <h3 id="loginheader">Registration Form</h3> <br>
+    <label for="">Username</label>
+    <li><input id="username" v-model="username" type="text" placeholder="Enter your username"></li>
+
+    <label for="">Password</label>
+    <li><input id="password" v-model="password" type="password" placeholder="Please enter your password"></li>
+
+    <label for="">Email</label>
+    <li><input id="email" v-model="email" type="email" placeholder="example@gmail.com"></li>
+
+    <button id="submitBtn" v-on:click="checkInput">Submit</button>
+
+</form>
+
+<script>
+    var form = new Vue({
+        el: "#loginbox",
+        data: {
+          username: '',
+          password: '',
+          email: '',  
+
+        },
+        methods: {
+            checkInput: function() {
+                var str ='';
+                if (this.username) {
+                    str = str + "username: " + this.username;
+                }
+                if (this.password) {
+                    str = str + "password: " + this.password;
+                }
+                if (this.email) {
+                    email = email + "email: " + this.email;
+                }
+                if (str) {
+                    alert(str)
+                } else {
+                    alert("Please input the required fields")
+                }
+            }
+
+
+        }
+
+    })
+</script>
+
+</body>
+</html>

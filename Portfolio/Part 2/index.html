@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+
+  <body style="background-color: darkslategray;">
+
+
+    <div id="app">
+
+    </div>
+
+    <script>
+
+        Vue.component('prompt-compo', {
+          template: '<div><p>${message}</p><button @click="say">Click this button for a surprise!</button></div>',
+          delimiters: ['${','}'],
+          data: function(){
+            return {
+              message: 'See what happens below...'
+            }
+          },
+          methods: {
+            say: function() {
+              alert('SURPRISE!!!!');
+            }
+          }
+        });
+        
+        let vm = new Vue({
+          el:'#app',
+          template: `<prompt-compo/>`
+        });
+        
+        </script>
+<br>
+
+    <div id="appb">
+        <child :text="message"></child>
+    </div>
+
+    <script>
+                Vue.component('child',{
+            props: {
+              text: {
+                type: String,
+                required: true
+              }
+            },
+            template: `<div>{{ text }}</div>`
+          });
+          
+          new Vue({
+            el: '#appb',
+            data() {
+              return {
+                message: 'This is a prop for week 7 of Responsive Web Apps'
+              }
+            }
+          })
+    </script>
+  </body>
+</html>
+
+
